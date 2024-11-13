@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python - Boto3 and AWS RDS :: Jane Hugo Site</title>
+    <link>https://example.org/index.html</link>
+    <description>Introduction In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud.&#xA;In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Nov 2024 13:58:54 -0600</lastBuildDate>
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First-Chapters</title>
+      <link>https://example.org/first-chapter/index.html</link>
+      <pubDate>Mon, 11 Nov 2024 13:58:54 -0600</pubDate>
+      <guid>https://example.org/first-chapter/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

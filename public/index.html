@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.138.0">
+    <meta name="generator" content="Relearn 7.1.1">
+    <meta name="description" content="Introduction In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud.
+In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Python - Boto3 and AWS RDS :: Jane Hugo Site">
+    <meta name="twitter:description" content="Introduction In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud.
+In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.">
+    <meta property="og:url" content="https://example.org/index.html">
+    <meta property="og:site_name" content="Jane Hugo Site">
+    <meta property="og:title" content="Python - Boto3 and AWS RDS :: Jane Hugo Site">
+    <meta property="og:description" content="Introduction In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud.
+In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Python - Boto3 and AWS RDS :: Jane Hugo Site">
+    <meta itemprop="description" content="Introduction In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud.
+In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.">
+    <meta itemprop="datePublished" content="2024-11-11T13:58:54-06:00">
+    <meta itemprop="dateModified" content="2024-11-11T13:58:54-06:00">
+    <meta itemprop="wordCount" content="385">
+    <title>Python - Boto3 and AWS RDS :: Jane Hugo Site</title>
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Python - Boto3 and AWS RDS :: Jane Hugo Site">
+    <link href="/css/fontawesome-all.min.css?1731531414" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731531414" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731531414" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731531414" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731531414" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731531414" rel="stylesheet">
+    <link href="/css/fonts.css?1731531414" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731531414" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731531414" rel="stylesheet">
+    <link href="/css/theme-auto.css?1731531414" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-auto.css?1731531414" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731531414" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731531414"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='.';
+      window.relearn.relBaseUri='.';
+      window.relearn.absBaseUri='https:\/\/example.org';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'auto' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#pre-requisites">Pre-requisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#get-started">Get started</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Python - Boto3 and AWS RDS</span><meta itemprop="position" content="1"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-left"></i></span>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/first-chapter/index.html" title="First-Chapters (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable home" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="home">
+  <header class="headline">
+  </header>
+
+<h1 id="python---boto3-and-aws-rds">Python - Boto3 and AWS RDS</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud.</p>
+<p>In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.</p>
+<h3 id="pre-requisites">Pre-requisites</h3>
+<ul>
+<li>
+<p>AWS account</p>
+</li>
+<li>
+<p>AWS Access Key</p>
+</li>
+<li>
+<p>Python</p>
+</li>
+<li>
+<p>Boto3</p>
+</li>
+</ul>
+<h2 id="get-started">Get started</h2>
+<ol>
+<li>You must sign in to AWS to create an account. After you create an account, it is advisable to create an IAM user and create Access Keys.</li>
+</ol>
+<p>Access keys consist of an Access Key ID and a Secret Access Key.</p>
+<ol start="2">
+<li>If you are on a Mac, open your terminal and install Python. Check the version.</li>
+</ol>
+<p>Note: If you have an older version of Python 2.7.xx, do not use it. Install the latest version of Python.</p>
+<pre><code>python3
+Python 3.9.5 (default, May  4 2021, 03:36:27) 
+</code></pre>
+<ol start="3">
+<li>Install Boto3.</li>
+</ol>
+<p>Boto3 is the AWS SDK for Python to access AWS resources through an API. Install pip which is a package manager for Python.</p>
+<pre><code>python3 -m pip install boto3
+</code></pre>
+<p>Type the command to see the Boto3 version</p>
+<pre><code>python3 -c &quot;import boto3, sys; print(f'{sys.version} \nboto3: {boto3.__version__}')&quot;
+</code></pre>
+<p>Alternatively, you can check the version below.</p>
+<pre><code>pip show boto3
+Name: boto3
+Version: 1.24.50
+Summary: The AWS SDK for Python
+Home-page: https://github.com/boto/boto3
+Author: Amazon Web Services
+Author-email: 
+License: Apache License 2.0
+Location: /usr/local/lib/python3.9/site-packages
+Requires: botocore, jmespath, s3transfer
+</code></pre>
+<ol start="4">
+<li>Configure aws-cli</li>
+</ol>
+<p>The AWS Command Line Interface is a unified tool to manage your AWS services.</p>
+<p>On your terminal, configure AWS cli options and you will be prompted to enter the AWS Access Key ID and AWS Secret Access Key ID which you created earlier from Step1.</p>
+<p>Note: You can try these instructions on the AWS Cloud shell on the Console too.</p>
+<pre><code>aws configure
+AWS Access Key ID [****************YRMU]:xxxxxxxxxxx
+AWS Secret Access Key [****************yXT7]: xxxxxxxxxx
+Default region name [yes]: us-east-1
+Default output format [None]: 
+</code></pre>
+<ol start="5">
+<li>The set up is ready. Refer to the <em>API Reference</em> for AWS RDS to run a Python SDK to create and stop the MySQL database.</li>
+</ol>
+<h2 id="references">References</h2>
+<p>Boto3 docs - quickstart to install Python and Boto3.</p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="/index.html">
+Jane Hugo Site
+          </a>
+        </div>
+        <script>
+          window.index_js_url="/searchindex.en.js?1731531414";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1731531414" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731531414" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731531414" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731531414" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731531414" defer></script>
+        <script src="/js/search.js?1731531414" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/first-chapter/index.html"><a class="padding" href="/first-chapter/index.html">First-Chapters</a></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-auto" value="auto" selected>Auto</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1731531414" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731531414" defer></script>
+    <script src="/js/theme.js?1731531414" defer></script>
+  </body>
+</html>
