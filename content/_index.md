@@ -7,7 +7,7 @@ type = "home"
 
 In the past, you would have created a relational database using the user interface or the SQL client for database creation, management, and administration. RDS is the Relational Database Service of AWS to set up, create, and operate a relational database on the AWS Cloud. 
 
-In this how-to guide, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.
+In this **how-to guide**, you will learn how to install and configure a Python SDK library called Boto3. The Boto3 library will be used to programmatically call the interface of AWS RDS API to create and manage a database, which is covered under References.
 
 ### Pre-requisites
 
@@ -27,7 +27,7 @@ Access keys consist of an Access Key ID and a Secret Access Key.
 
 2. If you are on a Mac, open your terminal and install Python. Check the version.
 
-Note: If you have an older version of Python 2.7.xx, do not use it. Install the latest version of Python.
+*Note*: If you have an older version of Python 2.7.xx, do not use it. Install the latest version of Python.
 
     python3
     Python 3.9.5 (default, May  4 2021, 03:36:27) 
@@ -61,7 +61,7 @@ The AWS Command Line Interface is a unified tool to manage your AWS services.
 
 On your terminal, configure AWS cli options and you will be prompted to enter the AWS Access Key ID and AWS Secret Access Key ID which you created earlier from Step1.
 
-Note: You can try these instructions on the AWS Cloud shell on the Console too.
+*Note*: You can try these instructions on the AWS Cloud shell on the Console too.
 
     aws configure
     AWS Access Key ID [****************YRMU]:xxxxxxxxxxx
@@ -69,7 +69,7 @@ Note: You can try these instructions on the AWS Cloud shell on the Console too.
     Default region name [yes]: us-east-1
     Default output format [None]: 
 
-5. The set up is ready. Refer to the *API Reference* for AWS RDS to run a Python SDK to create and stop the MySQL database.
+5. The setup is ready. Refer to the *API Reference* for AWS RDS to run a Python SDK to create and stop the MySQL database.
 
 ## References
 
