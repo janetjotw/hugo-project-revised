@@ -27,7 +27,7 @@ Access keys consist of an Access Key ID and a Secret Access Key.
 
 2. If you are on a Mac, open your terminal and install Python. Check the version.
 
-*Note*: If you have an older version of Python 2.7.xx, do not use it. Install the latest version of Python.
+**Note**: If you have an older version of Python 2.7.xx, do not use it. Install the latest version of Python.
 
     python3
     Python 3.9.5 (default, May  4 2021, 03:36:27) 
@@ -61,7 +61,7 @@ The AWS Command Line Interface is a unified tool to manage your AWS services.
 
 On your terminal, configure AWS cli options and you will be prompted to enter the AWS Access Key ID and AWS Secret Access Key ID which you created earlier from Step1.
 
-*Note*: You can try these instructions on the AWS Cloud shell on the Console too.
+**Note**: You can try these instructions on the AWS Cloud shell on the Console too.
 
     aws configure
     AWS Access Key ID [****************YRMU]:xxxxxxxxxxx
